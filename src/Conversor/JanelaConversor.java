@@ -352,13 +352,15 @@ public class JanelaConversor extends javax.swing.JFrame {
         String input = InputTemp.getText();
         double inputdouble = Double.parseDouble(input);
         double outText = inputdouble;
+        double celsiusKelvin = inputdouble + 273;
+        double kelvinCelsius = inputdouble - 273;
 
         if (InputC.isSelected()) {
             if (OutF.isSelected()) {
                 outText = (inputdouble * 1.8) + 32;
             }
             if (OutK.isSelected()) {
-                outText = inputdouble - 273;
+                outText = inputdouble + 273;
             }
 
         }
@@ -367,16 +369,17 @@ public class JanelaConversor extends javax.swing.JFrame {
                 outText = (inputdouble - 32) / 1.80;
             }
             if (OutK.isSelected()) {
-                outText = ((inputdouble - 32) / 1.80) - 273;
+                
+                outText =((inputdouble-32)/1.8)+273 ;
             }
 
         }
         if(InputK.isSelected()){
             if(OutC.isSelected()){
-                outText = inputdouble +273;
+                outText = inputdouble - 273;
             }
             if(OutF.isSelected()){
-                outText = ((inputdouble - 32) / 1.80)+273;
+                outText = 1.8*(inputdouble-273)+32;
             }
         }
         OutputTemp.setText("" + outText);
